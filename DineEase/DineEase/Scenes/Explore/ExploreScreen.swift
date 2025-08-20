@@ -42,6 +42,7 @@ extension ExploreScreen {
 
 struct ExploreScreen: View {
     @StateObject private var viewModel = ExploreViewModel()
+    @State private var searchBarHeight: CGFloat = .zero
     
     init() {
         let appearance = UINavigationBarAppearance()
@@ -143,31 +144,45 @@ private extension ExploreScreen {
 
 private extension ExploreScreen {
 
+    var searchBar: some View {
+        WrappedSearchBar(text: $viewModel.searchText,
+                         dynamicHeight: $searchBarHeight, searchHandler: {
+            Task { await viewModel.fetchRestaurants() }
+            
+        })
+        .frame(height: searchBarHeight)
+        .padding(.top, Global.Margin.large)
+        .padding(.horizontal, Global.Margin.medium)
+    }
+
     var restaurantListView: some View {
-        ScrollView {
-            LazyVStack(spacing: Constant.Size.listSpacing) {
-                ForEach(Array(viewModel.restaurants.enumerated()), id: \.element.id) { index, restaurant in
-                    RestaurantRow(restaurant: restaurant) {
-                        viewModel.didTapRestaurant(restaurant)
-                    }
-                    .onAppear {
-                        // Load more when we're near the end (last 3 items)
-                        if index >= viewModel.restaurants.count - 3 &&
-                           viewModel.hasMorePages &&
-                           !viewModel.isLoadingMore {
-                            Task {
-                                await viewModel.loadMoreRestaurants()
+        VStack(spacing: Global.Margin.medium) {
+            searchBar
+            ScrollView {
+                LazyVStack(spacing: Constant.Size.listSpacing) {
+                    ForEach(Array(viewModel.restaurants.enumerated()), id: \.element.id) { index, restaurant in
+                        RestaurantRow(restaurant: restaurant) {
+                            viewModel.didTapRestaurant(restaurant)
+                        }
+                        .onAppear {
+                            // Load more when we're near the end (last 3 items)
+                            if index >= viewModel.restaurants.count - 3 &&
+                               viewModel.hasMorePages &&
+                               !viewModel.isLoadingMore {
+                                Task {
+                                    await viewModel.loadMoreRestaurants()
+                                }
                             }
                         }
                     }
-                }
 
-                if viewModel.isLoadingMore {
-                    paginationLoadingView
+                    if viewModel.isLoadingMore {
+                        paginationLoadingView
+                    }
                 }
+                .padding(.horizontal, Constant.Size.horizontalPadding)
+                .padding(.top, Constant.Size.topPadding)
             }
-            .padding(.horizontal, Constant.Size.horizontalPadding)
-            .padding(.top, Constant.Size.topPadding)
         }
     }
 

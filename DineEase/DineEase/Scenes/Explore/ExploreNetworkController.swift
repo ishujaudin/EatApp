@@ -9,9 +9,9 @@ import Foundation
 
 class ExploreNetworkController {
 
-    func fetchRestaurants(page: Int = 1, limit: Int = 30) async throws -> RestaurantsResponse {
+    func fetchRestaurants(page: Int = 1, limit: Int = 30, search: String = "") async throws -> RestaurantsResponse {
         try await NetworkManager.shared.request(
-            endpoint: .fetchRestaurants(page: page, limit: limit),
+            endpoint: .fetchRestaurants(page: page, limit: limit, search: search),
             responseModel: RestaurantsResponse.self
         )
     }

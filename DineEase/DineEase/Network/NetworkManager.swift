@@ -19,7 +19,7 @@ class NetworkManager {
     }
 
 
-    func request<T: Codable>(endpoint: Endpoint, parameters: [String: Any]? = nil, responseModel: T.Type, useCache: Bool = true) async throws -> T {
+    func request<T: Codable>(endpoint: Endpoint, responseModel: T.Type, useCache: Bool = false) async throws -> T {
         let url = "\(Endpoint.baseURL)\(endpoint.path)"
 
         if useCache, endpoint.method == .get {
@@ -28,7 +28,7 @@ class NetworkManager {
             }
         }
 
-        let request = session.request(url, method: endpoint.method, parameters: parameters, encoding: endpoint.encoding)
+        let request = session.request(url, method: endpoint.method, parameters: endpoint.parameters, encoding: endpoint.encoding)
         let response = await request.serializingData().response
         guard let statusCode = response.response?.statusCode else { throw NetworkError.invalidResponse }
 

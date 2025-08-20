@@ -10,7 +10,7 @@ import Alamofire
 enum Endpoint {
     static let baseURL = "https://api.eat-sandbox.co/consumer/v2"
 
-    case fetchRestaurants(page: Int = 1, limit: Int = 30)
+    case fetchRestaurants(page: Int = 1, limit: Int = 30, search: String = "")
     case fetchRestaurantDetails(id: String)
 
     var path: String {
@@ -28,11 +28,12 @@ enum Endpoint {
 
     var parameters: [String: Any]? {
         switch self {
-        case .fetchRestaurants(let page, let limit):
+        case .fetchRestaurants(let page, let limit, let search):
             return [
                 "region_id": "3906535a-d96c-47cf-99b0-009fc9e038e0",
                 "page": page,
-                "limit": limit
+                "limit": limit,
+                "q": search
             ]
         case .fetchRestaurantDetails:
             return nil
