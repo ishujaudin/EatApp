@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "img_placeholder_header.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

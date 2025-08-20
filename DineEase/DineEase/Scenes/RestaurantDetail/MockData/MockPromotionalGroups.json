@@ -1,0 +1,50 @@
+[
+  {
+    "id": "bb96d8e1-947e-4a16-8529-c52ba37d219e",
+    "type": "promotional_group",
+    "attributes": {
+      "name": "Best Brunches in Dubai",
+      "description": "Brunch is a Dubai institution that will never go out of style. Whether your brunch goals are to party, chill out, or the sole aim is to devour as much as possible, we've got you covered on some of the best and most appropriate brunches in Dubai.",
+      "region_id": "3906535a-d96c-47cf-99b0-009fc9e038e0",
+      "key": "e01tf",
+      "slug": "brunch-dubai",
+      "page_title": "Best Brunches in Dubai | Eat App",
+      "page_description": "Brunch is a Dubai institution that will never go out of style. Whether your brunch goals are to party, chill out, or the sole aim is to devour as much as possible, we've got you covered on some of the best and most appropriate brunches in Dubai.",
+      "restaurants_count": 4,
+      "image_url": "https://ucarecdn.com/cc8ea1b9-9eff-49ba-82e1-7b233db1939c/"
+    },
+    "relationships": {}
+  },
+  {
+    "id": "62242caa-7a08-4c87-802e-7600668a0a47",
+    "type": "promotional_group",
+    "attributes": {
+      "name": "Easter at Atlantis, The Palm",
+      "description": "Celebrate Easter with Atlantis!",
+      "region_id": "3906535a-d96c-47cf-99b0-009fc9e038e0",
+      "key": "tpqwf",
+      "slug": "easter-atlantis-palm",
+      "page_title": "Easter 2019 at Atlantis The Palm",
+      "page_description": "Celebrate Easter with Atlantis!",
+      "restaurants_count": 1,
+      "image_url": "https://ucarecdn.com/efc4e993-12d3-4c0f-95ce-d396b36f7460/"
+    },
+    "relationships": {}
+  },
+  {
+    "id": "c25fc419-1d87-4585-8fd3-4bbecda57052",
+    "type": "promotional_group",
+    "attributes": {
+      "name": "Easter Celebrations in Dubai",
+      "description": "It's the season to go egg hunting, feast on delicacies and indulge in family festivities - it's Easter time! Make your festivities this year unforgettable with some of the best spots in Dubai to enjoy an exciting Easter meal with delicious food and fun activities.",
+      "region_id": "3906535a-d96c-47cf-99b0-009fc9e038e0",
+      "key": "lk098",
+      "slug": "easter-uae",
+      "page_title": "Easter Celebrations in UAE | Eat App",
+      "page_description": "It's the season to go egg hunting, feast on delicacies and indulge in family festivities - it's Easter time! Make your festivities this year unforgettable with some of the best spots in Dubai to enjoy an exciting Easter meal with delicious food and fun activities.",
+      "restaurants_count": 1,
+      "image_url": "https://ucarecdn.com/5f8ca1bd-4342-488a-afa7-f18339dd842a/"
+    },
+    "relationships": {}
+  }
+]
